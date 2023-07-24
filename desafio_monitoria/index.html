@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Virtual</title> 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script> 
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body> <!-- Navigator -->
+    <nav class="navbar" style="background-color: rgb(223, 220, 220);">
+        <div class="container-fluid"> <a class="navbar-brand" href="#" style="font-size: 1.4rem;"> <img src="hanger.png"
+                    alt="Logo" width="42" height="38" class="d-inline-block align-text-top"> Loja Virtual </a>
+            <ul class="nav nav-underline ">
+                <li class="nav-item"> <a id="filtrar-todos" class="nav-link text-black"
+                        onclick="trocarLista('todos')">Todos os produtos</a> </li>
+                <li class="nav-item"> <a id="filtrar-femininos" class="nav-link text-black"
+                        onclick="trocarLista('femininos')">Feminino</a> </li>
+                <li class="nav-item"> <a id="filtrar-masculinos" class="nav-link text-black"
+                        onclick="trocarLista('masculinos')">Masculino</a> </li>
+                <li class="nav-item"> <a id="filtrar-infantis" class="nav-link text-black"
+                        onclick="trocarLista('infantis')">Infantil</a> </li>
+            </ul>
+            <form id="pesquisar" method="get" class="d-flex justify-content-end" role="search"> <input name="filtro"
+                    id="filtro" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                    style="background-color: rgb(235, 233, 233);"> <button class="btn btn-outline-info"
+                    type="submit">Pesquisar</button> </form> <button id="carrinho" class="navbar-brand border border-0"
+                data-bs-toggle="modal" data-bs-target="#carrinhoDeCompras"> <img src="bag_icon.png"
+                    alt="Carrinho de Compras" width="38" height="36"> </button>
+        </div>
+    </nav>
+    <div class="modal modal-lg" tabindex="-1" id="carrinhoDeCompras">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Carrinho de Compras</h5> <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="produtos-carrinho"
+                    class="modal-body d-flex align-items-center justify-content-around flex-wrap"></div>
+            </div>
+        </div>
+    </div>
+    <main id="lista-produtos" class="itens-list container"></main>
+    <script src="script.js" onload="init()"></script>
+</body>
+
+</html>
